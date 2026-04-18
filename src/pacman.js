@@ -108,9 +108,18 @@ function draw() {
     });
 }
 
+function gameOver(message) {
+    gameRunning = false;
+    startOverlay.classList.remove('hidden');
+    alert(message);
+    reset();
+}
+
 function update() {
     if (!gameRunning) return;
     if (frameCount % 12 === 0) {
+        const prevPacman = { x: pacman.x, y: pacman.y };
+
         if (canMove(pacman.x, pacman.y, pacman.nextDir)) pacman.dir = pacman.nextDir;
         if (canMove(pacman.x, pacman.y, pacman.dir)) {
             if (pacman.dir === 0) pacman.x++;
@@ -118,6 +127,15 @@ function update() {
             else if (pacman.dir === 2) pacman.x--;
             else if (pacman.dir === 3) pacman.y--;
         }
+
+        // Check if Pacman moved into any ghost
+        for (const g of ghosts) {
+            if (g.x === pacman.x && g.y === pacman.y) {
+                gameOver('Ghost caught you! Game Over.');
+                return;
+            }
+        }
+
         let pIdx = pellets.findIndex(p => p.x === pacman.x && p.y === pacman.y);
         if (pIdx !== -1) {
             pellets.splice(pIdx, 1);
@@ -129,7 +147,9 @@ function update() {
                 localStorage.setItem('pacman-highscore', highscore);
             }
         }
-        ghosts.forEach(g => {
+
+        for (const g of ghosts) {
+            const prevGhost = { x: g.x, y: g.y };
             let options = [0, 1, 2, 3].filter(d => canMove(g.x, g.y, d));
             if (options.length > 0) {
                 if (!options.includes(g.dir) || Math.random() < 0.25) {
@@ -140,18 +160,18 @@ function update() {
                 else if (g.dir === 2) g.x--;
                 else if (g.dir === 3) g.y--;
             }
-            if (g.x === pacman.x && g.y === pacman.y) {
-                gameRunning = false;
-                startOverlay.classList.remove('hidden');
-                alert('Ghost caught you! Game Over.');
-                reset();
+
+            // Check if ghost moved into Pacman OR if they swapped positions
+            if ((g.x === pacman.x && g.y === pacman.y) ||
+                (g.x === prevPacman.x && g.y === prevPacman.y && prevGhost.x === pacman.x && prevGhost.y === pacman.y)) {
+                gameOver('Ghost caught you! Game Over.');
+                return;
             }
-        });
+        }
+
         if (pellets.length === 0) {
-            gameRunning = false;
-            startOverlay.classList.remove('hidden');
-            alert('Congratulations! You cleared the level.');
-            reset();
+            gameOver('Congratulations! You cleared the level.');
+            return;
         }
     }
     pacman.mouth += pacman.mouthSpeed;
