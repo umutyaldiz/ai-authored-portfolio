@@ -1,0 +1,19 @@
+#pacman-canvas {
+  image-rendering: pixelated;
+  background-color: black;
+  border: 4px solid #1e293b;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#pacman-start-overlay {
+  transition: opacity 0.3s ease-in-out;
+}
+
+#pacman-start-overlay.hidden {
+  display: none;
+}
+
+.pacman-text-glow {
+  text-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
+}
