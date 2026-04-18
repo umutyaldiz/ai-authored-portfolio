@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Personal portfolio of Umut Yaldız, 100% developed and maintained by autonomous AI agents.">
-    <title>Umut YaldÄ±z | Senior Frontend Developer & Team Lead</title>
+    <title>Umut Yaldız | Senior Frontend Developer & Team Lead</title>
     <link rel="stylesheet" href="/src/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +17,7 @@
             <div class="flex gap-8">
                 <a href="#experience" class="text-sm font-medium hover:text-sky-600">Experience</a>
                 <a href="#stack" class="text-sm font-medium hover:text-sky-600">Stack</a>
+                <a href="#demo" class="text-sm font-medium hover:text-sky-600">Demo</a>
                 <a href="#contact" class="text-sm font-medium hover:text-sky-600">Contact</a>
             </div>
         </nav>
@@ -30,7 +31,7 @@
                     I build <span class="text-sky-600">scalable</span> digital experiences.
                 </h1>
                 <p class="text-xl text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
-                    Hi, I'm <span class="font-semibold text-slate-900 dark:text-white">Umut YaldÄ±z</span>. I'm a Senior Frontend Developer and Team Lead specializing in crafting high-performance web applications and leading engineering teams to success.
+                    Hi, I'm <span class="font-semibold text-slate-900 dark:text-white">Umut Yaldız</span>. I'm a Senior Frontend Developer and Team Lead specializing in crafting high-performance web applications and leading engineering teams to success.
                 </p>
                 <div class="flex gap-4">
                     <a href="#contact" class="px-6 py-3 bg-sky-600 text-white font-semibold rounded-lg hover:bg-sky-700 transition-colors">Get in Touch</a>
@@ -47,18 +48,18 @@
             </h2>
             <div class="space-y-12">
                 <div class="flex flex-col md:flex-row gap-4 md:gap-12">
-                    <div class="w-32 text-slate-400 font-medium shrink-0">2021 â€” PRES</div>
+                    <div class="w-32 text-slate-400 font-medium shrink-0">2021 — PRES</div>
                     <div>
-                        <h3 class="text-xl font-bold">Frontend Team Lead â€” TechCorp</h3>
+                        <h3 class="text-xl font-bold">Frontend Team Lead — TechCorp</h3>
                         <p class="text-slate-600 dark:text-slate-400 mt-2">
                             Directing a team of 8 developers in migrating a legacy monolith to a micro-frontend architecture using Next.js and Module Federation. Improved performance metrics by 40% and established best practices for TypeScript and Testing.
                         </p>
                     </div>
                 </div>
                 <div class="flex flex-col md:flex-row gap-4 md:gap-12">
-                    <div class="w-32 text-slate-400 font-medium shrink-0">2018 â€” 2021</div>
+                    <div class="w-32 text-slate-400 font-medium shrink-0">2018 — 2021</div>
                     <div>
-                        <h3 class="text-xl font-bold">Senior Frontend Developer â€” WebSolutions</h3>
+                        <h3 class="text-xl font-bold">Senior Frontend Developer — WebSolutions</h3>
                         <p class="text-slate-600 dark:text-slate-400 mt-2">
                             Developed complex data visualization dashboards for enterprise clients. Architected a reusable UI component library using Tailwind CSS and React, reducing development time for new features by 30%.
                         </p>
@@ -85,6 +86,64 @@
             </div>
         </section>
 
+        <!-- Interactive Demo -->
+        <section id="demo" class="section-container">
+            <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+                Interactive Dev Skill-Up
+                <div class="h-px flex-1 bg-slate-200 dark:bg-slate-800"></div>
+            </h2>
+            <div class="card bg-white dark:bg-slate-900 overflow-hidden">
+                <div class="p-4 bg-sky-50 dark:bg-sky-900/10 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
+                    <span class="text-sm font-bold uppercase tracking-wider text-sky-600">Dev Simulator v1.0</span>
+                    <button id="reset-game" class="text-xs text-slate-400 hover:text-red-500 transition-colors cursor-pointer">Reset Progress</button>
+                </div>
+                <div class="p-8">
+                    <p class="text-slate-600 dark:text-slate-400 mb-8">Click the skills to gain experience and level up. Your progress is saved locally!</p>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <!-- Skill: JavaScript -->
+                        <div class="skill-row" data-skill="javascript">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-bold text-sm">JavaScript</span>
+                                <span class="text-xs font-medium text-slate-500">Level <span class="level">1</span></span>
+                            </div>
+                            <div class="relative h-4 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden mb-3">
+                                <div class="progress-bar absolute top-0 left-0 h-full bg-sky-500 transition-all duration-300" style="width: 0%"></div>
+                            </div>
+                            <button class="upgrade-btn w-full py-2 bg-slate-200 dark:bg-slate-800 hover:bg-sky-600 hover:text-white dark:hover:bg-sky-600 text-slate-700 dark:text-slate-300 rounded font-bold text-xs transition-colors cursor-pointer uppercase tracking-wide">
+                                Learn (XP +10)
+                            </button>
+                        </div>
+                        <!-- Skill: React -->
+                        <div class="skill-row" data-skill="react">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-bold text-sm">React</span>
+                                <span class="text-xs font-medium text-slate-500">Level <span class="level">1</span></span>
+                            </div>
+                            <div class="relative h-4 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden mb-3">
+                                <div class="progress-bar absolute top-0 left-0 h-full bg-sky-500 transition-all duration-300" style="width: 0%"></div>
+                            </div>
+                            <button class="upgrade-btn w-full py-2 bg-slate-200 dark:bg-slate-800 hover:bg-sky-600 hover:text-white dark:hover:bg-sky-600 text-slate-700 dark:text-slate-300 rounded font-bold text-xs transition-colors cursor-pointer uppercase tracking-wide">
+                                Learn (XP +10)
+                            </button>
+                        </div>
+                         <!-- Skill: Architecture -->
+                         <div class="skill-row" data-skill="architecture">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-bold text-sm">Architecture</span>
+                                <span class="text-xs font-medium text-slate-500">Level <span class="level">1</span></span>
+                            </div>
+                            <div class="relative h-4 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden mb-3">
+                                <div class="progress-bar absolute top-0 left-0 h-full bg-sky-500 transition-all duration-300" style="width: 0%"></div>
+                            </div>
+                            <button class="upgrade-btn w-full py-2 bg-slate-200 dark:bg-slate-800 hover:bg-sky-600 hover:text-white dark:hover:bg-sky-600 text-slate-700 dark:text-slate-300 rounded font-bold text-xs transition-colors cursor-pointer uppercase tracking-wide">
+                                Learn (XP +10)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact -->
         <section id="contact" class="section-container mb-20">
             <div class="bg-slate-900 dark:bg-sky-900/20 rounded-2xl p-12 text-center text-white border border-white/5">
@@ -101,7 +160,7 @@
 
     <footer class="py-10 border-t border-slate-200 dark:border-slate-800">
         <div class="section-container py-0 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 gap-4">
-            <p>Â© 2024 Umut YaldÄ±z. Built with Tailwind CSS v4.</p>
+            <p>© 2024 Umut Yaldız. Built with Tailwind CSS v4.</p>
             <div class="flex gap-6">
                 <a href="#" class="hover:text-slate-900 dark:hover:text-white">GitHub</a>
                 <a href="#" class="hover:text-slate-900 dark:hover:text-white">LinkedIn</a>
@@ -109,5 +168,61 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const STORAGE_KEY = 'uy-game-data';
+        const skillsList = ['javascript', 'react', 'architecture'];
+        let state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+            javascript: { xp: 0, level: 1 },
+            react: { xp: 0, level: 1 },
+            architecture: { xp: 0, level: 1 }
+        };
+
+        function updateUI() {
+            skillsList.forEach(skill => {
+                const row = document.querySelector(`.skill-row[data-skill="${skill}"]`);
+                if (!row) return;
+                const data = state[skill];
+                const xpToNext = data.level * 100;
+                const percentage = (data.xp / xpToNext) * 100;
+
+                row.querySelector('.level').textContent = data.level;
+                row.querySelector('.progress-bar').style.width = `${percentage}%`;
+            });
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        }
+
+        document.querySelectorAll('.upgrade-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const row = e.target.closest('.skill-row');
+                const skill = row.dataset.skill;
+                state[skill].xp += 10;
+                
+                const xpToNext = state[skill].level * 100;
+                if (state[skill].xp >= xpToNext) {
+                    state[skill].xp -= xpToNext;
+                    state[skill].level += 1;
+                    
+                    row.classList.remove('level-up-anim');
+                    void row.offsetWidth; 
+                    row.classList.add('level-up-anim');
+                }
+                updateUI();
+            });
+        });
+
+        document.getElementById('reset-game').addEventListener('click', () => {
+            if(confirm('Are you sure you want to reset your skills?')) {
+                state = {
+                    javascript: { xp: 0, level: 1 },
+                    react: { xp: 0, level: 1 },
+                    architecture: { xp: 0, level: 1 }
+                };
+                updateUI();
+            }
+        });
+
+        updateUI();
+    </script>
 </body>
 </html>
