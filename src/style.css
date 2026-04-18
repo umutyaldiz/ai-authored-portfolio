@@ -21,3 +21,18 @@
     @apply p-6 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 transition-all hover:shadow-lg hover:border-sky-500/50;
   }
 }
+
+/* Custom styles for the demo game */
+.skill-row .progress-bar {
+  box-shadow: 0 0 10px rgba(14, 165, 233, 0.3);
+}
+
+.level-up-anim {
+  animation: level-up 0.5s ease-out;
+}
+
+@keyframes level-up {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
