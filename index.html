@@ -6,6 +6,7 @@
     <meta name="description" content="Personal portfolio of Umut Yaldız, 100% developed and maintained by autonomous AI agents.">
     <title>Umut Yaldız | Senior Frontend Developer & Team Lead</title>
     <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/pacman.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -89,55 +90,64 @@
         <!-- Interactive Demo -->
         <section id="demo" class="section-container">
             <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
-                Interactive Dev Skill-Up
+                Interactive Dev Playground
                 <div class="h-px flex-1 bg-slate-200 dark:bg-slate-800"></div>
             </h2>
-            <div class="card bg-white dark:bg-slate-900 overflow-hidden">
-                <div class="p-4 bg-sky-50 dark:bg-sky-900/10 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
-                    <span class="text-sm font-bold uppercase tracking-wider text-sky-600">Dev Simulator v1.0</span>
-                    <button id="reset-game" class="text-xs text-slate-400 hover:text-red-500 transition-colors cursor-pointer">Reset Progress</button>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Skill Simulator Card -->
+                <div class="card bg-white dark:bg-slate-900 overflow-hidden">
+                    <div class="p-4 bg-sky-50 dark:bg-sky-900/10 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
+                        <span class="text-sm font-bold uppercase tracking-wider text-sky-600">Dev Simulator v1.0</span>
+                        <button id="reset-game" class="text-xs text-slate-400 hover:text-red-500 transition-colors cursor-pointer">Reset Progress</button>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-600 dark:text-slate-400 mb-6 text-sm">Level up your skills by gaining experience. Progress is saved locally.</p>
+                        <div class="space-y-6">
+                            <div class="skill-row" data-skill="javascript">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-bold text-sm">JavaScript</span>
+                                    <span class="text-xs font-medium text-slate-500">Level <span class="level">1</span></span>
+                                </div>
+                                <div class="relative h-3 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden mb-3">
+                                    <div class="progress-bar absolute top-0 left-0 h-full bg-sky-500 transition-all duration-300" style="width: 0%"></div>
+                                </div>
+                                <button class="upgrade-btn w-full py-2 bg-slate-200 dark:bg-slate-800 hover:bg-sky-600 hover:text-white dark:hover:bg-sky-600 text-slate-700 dark:text-slate-300 rounded font-bold text-[10px] transition-colors cursor-pointer uppercase tracking-wide">Learn (XP +10)</button>
+                            </div>
+                            <div class="skill-row" data-skill="react">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-bold text-sm">React</span>
+                                    <span class="text-xs font-medium text-slate-500">Level <span class="level">1</span></span>
+                                </div>
+                                <div class="relative h-3 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden mb-3">
+                                    <div class="progress-bar absolute top-0 left-0 h-full bg-sky-500 transition-all duration-300" style="width: 0%"></div>
+                                </div>
+                                <button class="upgrade-btn w-full py-2 bg-slate-200 dark:bg-slate-800 hover:bg-sky-600 hover:text-white dark:hover:bg-sky-600 text-slate-700 dark:text-slate-300 rounded font-bold text-[10px] transition-colors cursor-pointer uppercase tracking-wide">Learn (XP +10)</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="p-8">
-                    <p class="text-slate-600 dark:text-slate-400 mb-8">Click the skills to gain experience and level up. Your progress is saved locally!</p>
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <!-- Skill: JavaScript -->
-                        <div class="skill-row" data-skill="javascript">
-                            <div class="flex justify-between mb-2">
-                                <span class="font-bold text-sm">JavaScript</span>
-                                <span class="text-xs font-medium text-slate-500">Level <span class="level">1</span></span>
+
+                <!-- Pacman Game Card -->
+                <div class="card bg-slate-950 overflow-hidden border-slate-800 p-0 shadow-2xl flex flex-col">
+                    <div class="p-4 bg-slate-900 border-b border-slate-800 flex justify-between items-center">
+                        <span class="text-sm font-bold uppercase tracking-wider text-yellow-400">Retro Pac-Man</span>
+                        <div class="flex gap-4">
+                            <div class="text-right">
+                                <p class="text-[8px] text-slate-500 font-bold uppercase">High Score</p>
+                                <p id="pacman-highscore" class="text-xs font-mono text-white">0</p>
                             </div>
-                            <div class="relative h-4 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden mb-3">
-                                <div class="progress-bar absolute top-0 left-0 h-full bg-sky-500 transition-all duration-300" style="width: 0%"></div>
+                            <div class="text-right">
+                                <p class="text-[8px] text-slate-500 font-bold uppercase">Score</p>
+                                <p id="pacman-score" class="text-xs font-mono text-white">0</p>
                             </div>
-                            <button class="upgrade-btn w-full py-2 bg-slate-200 dark:bg-slate-800 hover:bg-sky-600 hover:text-white dark:hover:bg-sky-600 text-slate-700 dark:text-slate-300 rounded font-bold text-xs transition-colors cursor-pointer uppercase tracking-wide">
-                                Learn (XP +10)
-                            </button>
                         </div>
-                        <!-- Skill: React -->
-                        <div class="skill-row" data-skill="react">
-                            <div class="flex justify-between mb-2">
-                                <span class="font-bold text-sm">React</span>
-                                <span class="text-xs font-medium text-slate-500">Level <span class="level">1</span></span>
-                            </div>
-                            <div class="relative h-4 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden mb-3">
-                                <div class="progress-bar absolute top-0 left-0 h-full bg-sky-500 transition-all duration-300" style="width: 0%"></div>
-                            </div>
-                            <button class="upgrade-btn w-full py-2 bg-slate-200 dark:bg-slate-800 hover:bg-sky-600 hover:text-white dark:hover:bg-sky-600 text-slate-700 dark:text-slate-300 rounded font-bold text-xs transition-colors cursor-pointer uppercase tracking-wide">
-                                Learn (XP +10)
-                            </button>
-                        </div>
-                         <!-- Skill: Architecture -->
-                         <div class="skill-row" data-skill="architecture">
-                            <div class="flex justify-between mb-2">
-                                <span class="font-bold text-sm">Architecture</span>
-                                <span class="text-xs font-medium text-slate-500">Level <span class="level">1</span></span>
-                            </div>
-                            <div class="relative h-4 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden mb-3">
-                                <div class="progress-bar absolute top-0 left-0 h-full bg-sky-500 transition-all duration-300" style="width: 0%"></div>
-                            </div>
-                            <button class="upgrade-btn w-full py-2 bg-slate-200 dark:bg-slate-800 hover:bg-sky-600 hover:text-white dark:hover:bg-sky-600 text-slate-700 dark:text-slate-300 rounded font-bold text-xs transition-colors cursor-pointer uppercase tracking-wide">
-                                Learn (XP +10)
-                            </button>
+                    </div>
+                    <div id="pacman-container" class="relative flex-1 flex flex-col items-center justify-center p-4 min-h-[350px] bg-black">
+                        <canvas id="pacman-canvas" class="max-w-full h-auto"></canvas>
+                        <div id="pacman-start-overlay" class="absolute inset-0 flex flex-col items-center justify-center bg-black/90 z-10">
+                            <button id="start-pacman" class="px-8 py-3 bg-yellow-400 text-black font-black rounded-full hover:bg-yellow-300 transition-transform active:scale-95 cursor-pointer shadow-lg shadow-yellow-400/20">START GAME</button>
+                            <p class="mt-4 text-slate-500 text-[10px] uppercase tracking-widest">Use Arrow Keys</p>
                         </div>
                     </div>
                 </div>
@@ -145,84 +155,25 @@
         </section>
 
         <!-- Contact -->
-        <section id="contact" class="section-container mb-20">
-            <div class="bg-slate-900 dark:bg-sky-900/20 rounded-2xl p-12 text-center text-white border border-white/5">
-                <h2 class="text-3xl font-bold mb-4">Ready to start a project?</h2>
-                <p class="text-slate-300 mb-8 max-w-lg mx-auto">
-                    I'm always open to discussing new opportunities, frontend architecture, or mentorship.
-                </p>
-                <a href="mailto:hello@umutyaldiz.dev" class="inline-block px-8 py-4 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-100 transition-transform hover:scale-105">
-                    hello@umutyaldiz.dev
-                </a>
+        <section id="contact" class="section-container">
+            <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+                Contact
+                <div class="h-px flex-1 bg-slate-200 dark:bg-slate-800"></div>
+            </h2>
+            <div class="card text-center py-16">
+                <h3 class="text-2xl font-bold mb-4">Let's build something amazing.</h3>
+                <a href="mailto:hello@umutyaldiz.com" class="text-xl font-bold text-sky-600 hover:underline">hello@umutyaldiz.com</a>
             </div>
         </section>
     </main>
 
-    <footer class="py-10 border-t border-slate-200 dark:border-slate-800">
-        <div class="section-container py-0 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 gap-4">
-            <p>© 2024 Umut Yaldız. Built with Tailwind CSS v4.</p>
-            <div class="flex gap-6">
-                <a href="#" class="hover:text-slate-900 dark:hover:text-white">GitHub</a>
-                <a href="#" class="hover:text-slate-900 dark:hover:text-white">LinkedIn</a>
-                <a href="#" class="hover:text-slate-900 dark:hover:text-white">Twitter</a>
-            </div>
+    <footer class="py-12 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 text-center text-slate-500 text-sm">
+            <p>&copy; 2024 Umut Yaldız. Developed by AI.</p>
         </div>
     </footer>
 
-    <script>
-        const STORAGE_KEY = 'uy-game-data';
-        const skillsList = ['javascript', 'react', 'architecture'];
-        let state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
-            javascript: { xp: 0, level: 1 },
-            react: { xp: 0, level: 1 },
-            architecture: { xp: 0, level: 1 }
-        };
-
-        function updateUI() {
-            skillsList.forEach(skill => {
-                const row = document.querySelector(`.skill-row[data-skill="${skill}"]`);
-                if (!row) return;
-                const data = state[skill];
-                const xpToNext = data.level * 100;
-                const percentage = (data.xp / xpToNext) * 100;
-
-                row.querySelector('.level').textContent = data.level;
-                row.querySelector('.progress-bar').style.width = `${percentage}%`;
-            });
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-        }
-
-        document.querySelectorAll('.upgrade-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const row = e.target.closest('.skill-row');
-                const skill = row.dataset.skill;
-                state[skill].xp += 10;
-                
-                const xpToNext = state[skill].level * 100;
-                if (state[skill].xp >= xpToNext) {
-                    state[skill].xp -= xpToNext;
-                    state[skill].level += 1;
-                    
-                    row.classList.remove('level-up-anim');
-                    void row.offsetWidth; 
-                    row.classList.add('level-up-anim');
-                }
-                updateUI();
-            });
-        });
-
-        document.getElementById('reset-game').addEventListener('click', () => {
-            if(confirm('Are you sure you want to reset your skills?')) {
-                state = {
-                    javascript: { xp: 0, level: 1 },
-                    react: { xp: 0, level: 1 },
-                    architecture: { xp: 0, level: 1 }
-                };
-                updateUI();
-            }
-        });
-
-        updateUI();
-    </script>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/pacman.js"></script>
 </body>
 </html>
